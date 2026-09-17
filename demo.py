@@ -1,4 +1,4 @@
 def test_func() -> None:
-    print("Hello!")
+    pass
 
 test_func()
