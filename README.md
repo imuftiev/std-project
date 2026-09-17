@@ -524,3 +524,36 @@ $ git format-patch main
 ```
 ### Применяем патч для main ветки
 ```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
+$ git apply 0002-changing-for-git-patch.patch
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
+$ git apply 0003-second-commit.patch
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
+$ git apply 0004-Third-commit.patch
+0004-Third-commit.patch:19: trailing whitespace.
+#Third commit
+warning: 1 line adds whitespace errors.
+```
+
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        0001-readme-report.patch
+        0002-changing-for-git-patch.patch
+        0003-second-commit.patch
+        0004-Third-commit.patch
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
