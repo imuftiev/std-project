@@ -301,3 +301,105 @@ Fast-forward
 ```text
 Fast-forward
 ```
+# git log, cherry pick, git reset
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (dev3)
+$ git log
+commit 15b0f475798c5a5bcce2f8ea1f11683ff7509dad (HEAD -> dev3, origin/dev3)
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 13:22:51 2026 +0300
+
+    change file
+
+commit 8ee7f23c0a2709e9a4a7372a2b0a98048c31da9e
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 12:00:31 2026 +0300
+
+    dev3 branch change
+
+commit 63eb261ad87aaf63f5db9e7003e357a98fc49627
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:42:13 2026 +0300
+
+    README update
+
+commit 01e611d169e0177de912683e0b2b55ebcec90083
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:32:47 2026 +0300
+
+    rebase desc
+
+commit 605d950742ab202f8a1aaf8e7e591971a5541936
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+:
+commit 15b0f475798c5a5bcce2f8ea1f11683ff7509dad (HEAD -> dev3, origin/dev3)
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 13:22:51 2026 +0300
+
+    change file
+
+commit 8ee7f23c0a2709e9a4a7372a2b0a98048c31da9e
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 12:00:31 2026 +0300
+
+    dev3 branch change
+
+commit 63eb261ad87aaf63f5db9e7003e357a98fc49627
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:42:13 2026 +0300
+
+    README update
+
+commit 01e611d169e0177de912683e0b2b55ebcec90083
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:32:47 2026 +0300
+
+    rebase desc
+
+commit 605d950742ab202f8a1aaf8e7e591971a5541936
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:29:52 2026 +0300
+
+    README init
+
+commit 061b4aef97bb0182174f35a48108a0601520e5d0
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:37:16 2026 +0300
+
+    api init
+
+commit b8b38fca8c5d9021f79161e3f6b5a268a411dea4
+Author: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date:   Thu Sep 17 11:15:43 2026 +0300
+
+    sqush commit
+
+commit 8e3aca620d7503eb89d4854575822dea8c40393c
+Merge: 42c3874 8b76c62
+```
+
+### git reset --hard
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (dev3)
+$ git reset --hard 8ee7f23c
+HEAD is now at 8ee7f23 dev3 branch change
+
+```text
+Переместим коммит с dev ветки с хэшем: 97e91f0f814
+в ветку dev3:
+```
+
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (dev3)
+$ git cherry-pick 97e91f0f814
+[dev3 06a21b9] readme report
+ Date: Thu Sep 17 13:37:42 2026 +0300
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+```
+
+```text
+Сделаем интерактивный rebase последних трёх коммитов текущей ветки
+```
+
+```bash
+
