@@ -1,4 +1,4 @@
 def test_func() -> None:
-    print("Hello!")
+    print("Hello! and Goodbye!")
 
 test_func()
