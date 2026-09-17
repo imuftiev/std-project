@@ -1,0 +1,76 @@
+From 06a21b9bb1175a621d4d1e0f45ed8e9de2a1c185 Mon Sep 17 00:00:00 2001
+From: imcode <128029980+ilyas11m@users.noreply.github.com>
+Date: Thu, 17 Sep 2026 13:37:42 +0300
+Subject: [PATCH 1/4] readme report
+
+---
+ README.md | 55 ++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index cba1547..2232097 100644
+--- a/README.md
++++ b/README.md
+@@ -247,4 +247,57 @@ $ git log --oneline --graph --all --decorate
+ * 25b36f4 mock class init
+ * 2d09f52 test_func init
+ * 419dd04 person1
+-```
+\ No newline at end of file
++```
++
++# Конфликты слияния
++```bash
++iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main)$ git merge dev
++Auto-merging demo.py
++CONFLICT (content): Merge conflict in demo.py
++Automatic merge failed; fix conflicts and then commit the result.
++```
++```text
++def test_func() -> None:
++<<<<<<< HEAD
++    print("Hello! and Goodbye!")
++    print("How are you?")
++
++def demo_func() -> None:
++    print("Hi!")
++
++def two_sum() -> None:
++    print(5 + 6)
++
++def ping() -> None:
++    print("pong")
++=======
++    pass
++
++print("Hello")
++>>>>>>> dev
++
++test_func()
++```text
++```text
++commit hash: 730fda5 
++```
++
++```bash
++iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person2/std-project (main)
++$ git merge origin/dev2
++Merge made by the 'ort' strategy.
++ mock.py | 3 +++
++ 1 file changed, 3 insertions(+)
++```
++
++```bash
++iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
++$ git merge origin/dev3
++Updating 63eb261..8ee7f23
++Fast-forward
++ demo.py | 1 -
++ 1 file changed, 1 deletion(-)
++```
++```text
++Fast-forward
++```
+-- 
+2.55.0.windows.5
+
