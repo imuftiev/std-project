@@ -10,5 +10,8 @@ def two_sum() -> None:
 
 def ping() -> None:
     print("pong")
+    pass
+
+print("Hello")
 
 test_func()
