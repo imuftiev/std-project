@@ -198,4 +198,4 @@ $ git log --oneline --graph --all --decorate
 * 419dd04 person1
 
 ```
-
+# 3. Rebase
