@@ -31,7 +31,7 @@ git switch main
 git switch -c merge-test
 ```
 
-В новой ветви был изменен файл `demo.py` и выполнено два коммита:
+В новой ветви был изменен файл `demo.py` и выполнено два коммита
 
 До слияния история имела следующий вид:
 
@@ -106,7 +106,7 @@ git switch main
 git switch -c squash-test
 ```
 
-В ней был изменен файл `demo.py` и выполнено три отдельных коммита:
+В ней был изменен файл `demo.py` и выполнено три отдельных коммита
 
 
 ```
@@ -199,3 +199,52 @@ $ git log --oneline --graph --all --decorate
 
 ```
 # 3. Rebase
+
+### Создание ветки
+Для демонстрации Rebase была создана отдельная ветвь:
+
+```bash
+git switch main
+git switch -c rebase-test
+```
+В ней был добавлен файл `README.md` и выполнено два отдельных коммита
+Получилось так:
+```text
+        было
+          ↓
+          B---C
+         /
+A-------D
+
+
+        стало
+          ↓
+A---D---B'---C'
+```
+```bash
+$ git log --oneline --graph --all --decorate
+* 01e611d (HEAD -> rebase-test) rebase desc
+* 605d950 README init
+* 061b4ae (main) api init
+* b8b38fc sqush commit
+| * 496b441 (squash-test) 3 commit squash
+| * 4cc7e5b 2 commit squash
+| * 0684536 1 commit squash
+|/
+*   8e3aca6 Merge branch merge-example
+|\
+| * 8b76c62 (merge-test) 2 commit
+| * 0af4e50 1 commit
+|/
+*   42c3874 (origin/main, origin/HEAD) Merge pull request #2 from imuftiev/dev2
+|\
+| * 8213357 (origin/dev2, dev2) controlflow init in dev2
+|/
+*   7dca38c Merge pull request #1 from imuftiev/dev
+|\
+| * 19f32f1 workflow init in dev1
+|/
+* 25b36f4 mock class init
+* 2d09f52 test_func init
+* 419dd04 person1
+```
