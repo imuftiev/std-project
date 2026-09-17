@@ -475,3 +475,52 @@ iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/pe
 $ git rebase --continue
 Successfully rebased and updated refs/heads/main.
 ```
+
+# Работа с git format-patch
+git format-patch — это команда в Git, которая создает текстовые файлы-патчи (заплатки) из ваших коммитов.
+Каждый файл содержит не только сами изменения кода (diff), но и полные метаданные: автора, дату, сообщение коммита и порядковый номер. 
+Получившийся файл имеет формат электронной почты (mbox).
+Перенос кода без сети и репозиториев: Вы можете сохранить изменения на флешку или передать файл через мессенджер, если нет доступа к общему серверу
+
+### Делаем 4 коммита на ветке dev3
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (dev3)
+$ git log --oneline --graph --decorate
+* ce75953 (HEAD -> dev3) Third commit - 4 коммит
+* bb97ef2 second commit - 3 коммит
+* f24c087 changing for git patch - 2 коммит
+* 06a21b9 readme report - 1 коммит
+* 8ee7f23 dev3 branch change
+* 63eb261 README update
+* 01e611d rebase desc
+* 605d950 README init
+* 061b4ae api init
+* b8b38fc sqush commit
+*   8e3aca6 Merge branch merge-example
+|\
+| * 8b76c62 2 commit
+| * 0af4e50 1 commit
+|/
+*   42c3874 Merge pull request #2 from imuftiev/dev2
+|\
+| * 8213357 controlflow init in dev2
+|/
+*   7dca38c Merge pull request #1 from imuftiev/dev
+|\
+| * 19f32f1 (dev) workflow init in dev1
+|/
+* 25b36f4 mock class init
+* 2d09f52 test_func init
+* 419dd04 person1
+```
+### Формируем patch
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (dev3)
+$ git format-patch main
+0001-readme-report.patch
+0002-changing-for-git-patch.patch
+0003-second-commit.patch
+0004-Third-commit.patch
+```
+### Применяем патч для main ветки
+```bash
