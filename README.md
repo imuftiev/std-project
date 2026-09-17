@@ -663,21 +663,6 @@ index 0a37683..6c4de48 100644
  no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-```text
-Вариант 6. «Работа с алиасами для упрощения команд Git»
-Откройте терминал и выполните команду nano ~/.gitconfig для от-крытия файла конфигурации Git в текстовом редакторе Nano.
-В файле конфигурации Git добавьте следующие строки для создания алиасов:
-[alias]
-st = status
-ci = commit
-co = checkout
-br = branch
-df = diff
-lg = log --oneline --decorate --all --graph
-Это пример алиасов для упрощения команд status, commit, checkout, branch, diff и log.
-Сохраните изменения в файле конфигурации Git, нажав Ctrl + O, за-тем Enter, и выйдите из редактора, нажав Ctrl + X.
-Перезапустите терминал и выполните команды git st, git ci, git co, git br, git df и git lg для проверки, что алиасы работают корректно.
-```
 ```bash
 iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main)
 $ git lg
