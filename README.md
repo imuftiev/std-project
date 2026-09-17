@@ -248,3 +248,56 @@ $ git log --oneline --graph --all --decorate
 * 2d09f52 test_func init
 * 419dd04 person1
 ```
+
+# Конфликты слияния
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main)$ git merge dev
+Auto-merging demo.py
+CONFLICT (content): Merge conflict in demo.py
+Automatic merge failed; fix conflicts and then commit the result.
+```
+```text
+def test_func() -> None:
+<<<<<<< HEAD
+    print("Hello! and Goodbye!")
+    print("How are you?")
+
+def demo_func() -> None:
+    print("Hi!")
+
+def two_sum() -> None:
+    print(5 + 6)
+
+def ping() -> None:
+    print("pong")
+=======
+    pass
+
+print("Hello")
+>>>>>>> dev
+
+test_func()
+```text
+```text
+commit hash: 730fda5 
+```
+
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person2/std-project (main)
+$ git merge origin/dev2
+Merge made by the 'ort' strategy.
+ mock.py | 3 +++
+ 1 file changed, 3 insertions(+)
+```
+
+```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person3/std-project (main)
+$ git merge origin/dev3
+Updating 63eb261..8ee7f23
+Fast-forward
+ demo.py | 1 -
+ 1 file changed, 1 deletion(-)
+```
+```text
+Fast-forward
+```
