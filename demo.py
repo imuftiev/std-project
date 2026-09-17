@@ -1,5 +1,5 @@
 def test_func() -> None:
-    print("How are you?")
+    pass
 
 def demo_func() -> None:
     print("Hi!")
