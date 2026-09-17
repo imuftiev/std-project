@@ -258,7 +258,6 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 ```text
 def test_func() -> None:
-<<<<<<< HEAD
     print("Hello! and Goodbye!")
     print("How are you?")
 
@@ -270,11 +269,9 @@ def two_sum() -> None:
 
 def ping() -> None:
     print("pong")
-=======
     pass
 
 print("Hello")
->>>>>>> dev
 
 test_func()
 ```text
@@ -402,4 +399,79 @@ $ git cherry-pick 97e91f0f814
 ```
 
 ```bash
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main)
+$ git rebase -i HEAD~3
+Auto-merging demo.py
+CONFLICT (content): Merge conflict in demo.py
+error: could not apply 1b49ba3... ;rgb:bfbf/bfbf/bfbf:wa
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply 1b49ba3... # ;rgb:bfbf/bfbf/bfbf:wa
 
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git rebase -i HEAD~3
+fatal: It seems that there is already a rebase-merge directory, and
+I wonder if you are in the middle of another rebase.  If that is the
+case, please try
+        git rebase (--continue | --abort | --skip)
+If that is not the case, please
+        rm -fr ".git/rebase-merge"
+and run me again.  I am stopping in case you still have something
+valuable there.
+
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ ^C
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git rebase --continue
+demo.py: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git rebase --continue
+demo.py: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git merge
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git merge dev
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git merge
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git add .
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git commit "merge conflict resolve"
+error: pathspec 'merge conflict resolve' did not match any file(s) known to git
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git commit -m "merge conflict resolve"
+[detached HEAD 2df0dd1] merge conflict resolve
+ 1 file changed, 1 insertion(+)
+
+iwast@IlyasMuftiev MINGW64 ~/OneDrive/Рабочий стол/LocalRepository/person1/std-project (main|REBASE 1/4)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main.
+```
